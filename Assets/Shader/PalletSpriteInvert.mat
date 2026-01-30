@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PalletSprite
+  m_Name: PalletSpriteInvert
   m_Shader: {fileID: -6465566751694194690, guid: 5b4637249cf6134498459c57a4f69c07, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -117,7 +117,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Invert: 0
+    - _Invert: 1
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005

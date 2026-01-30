@@ -2,6 +2,8 @@ using System.Runtime.CompilerServices;
 using UnityEngine;
 
 [RequireComponent( typeof( Rigidbody2D ) )]
+[RequireComponent( typeof( SpriteRenderer ) )]
+[RequireComponent( typeof( Animator ) )]
 public class Character : MonoBehaviour
 {
     [Header( "Constants" )]
@@ -20,8 +22,11 @@ public class Character : MonoBehaviour
     [SerializeField] protected float jump_duration = 1.0f;
     [SerializeField] protected float jump_amplitude = 1.0f;
     private bool is_jumping = false;
+    private bool is_grounded = false;
     private float jump_timer = 0.0f;
 
+    private Animator animator { get { return GetComponent<Animator>(); } }
+    private SpriteRenderer visual { get { return GetComponent<SpriteRenderer>(); } }
     private Rigidbody2D body { get { return GetComponent<Rigidbody2D>(); } }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -34,12 +39,7 @@ public class Character : MonoBehaviour
     {
         bool left = Input.GetKey( KeyCode.A ) || Input.GetKey( KeyCode.LeftArrow );
         bool right = Input.GetKey( KeyCode.D ) || Input.GetKey( KeyCode.RightArrow );
-        bool jump = Input.GetKeyDown( KeyCode.Space ) || Input.GetKeyDown( KeyCode.Keypad0 );
-
-        if ( jump )
-        {
-            StartJump();
-        }
+        bool jump = Input.GetKey( KeyCode.Space ) || Input.GetKey( KeyCode.Keypad0 );
 
         movement_vector = 0;
 
@@ -49,73 +49,82 @@ public class Character : MonoBehaviour
         if ( right )
             movement_vector += 1;
 
-        bool will_move = left ^ right;
+        if ( jump && is_grounded )
+        {
+            is_jumping = true;
+            movement_vector = 0;
+        }
+        else if ( !jump )
+        {
+            is_jumping = false;
+        }
+
+        bool will_move = movement_vector != 0;
         if ( is_moving != will_move )
         {
             movement_timer = 0.0f;
         }
         is_moving = will_move;
     }
-    
+
+    void ProcessAnimation()
+    {
+        animator.SetFloat( "XVelocity", body.linearVelocityX );
+        animator.SetFloat( "YVelocity", body.linearVelocityY );
+        animator.SetBool( "IsJumping", is_jumping );
+        animator.SetBool( "IsGrounded", is_grounded );
+    }
+
     void Update()
     {
         ProcessInput();
 
         if ( is_jumping )
         {
+            body.linearVelocityX = 0;
             jump_timer += Time.deltaTime / jump_duration;
             if ( jump_timer > 1.0f )
             {
                 jump_timer = 1.0f;
                 is_jumping = false;
             }
-
-            float speed_multiplier = jump_curve.Evaluate( jump_timer );
-            float current_speed = speed_multiplier * jump_amplitude;
-
-            body.linearVelocityY = current_speed * Time.deltaTime;
         }
 
-        if ( is_moving )
+        if ( !is_jumping && jump_timer > 0 ) 
+        {
+            body.linearVelocityY += jump_curve.Evaluate( jump_timer ) * jump_amplitude;
+            jump_timer = 0.0f;
+        }
+
+        if ( !is_jumping && is_moving )
         {
             movement_timer = Mathf.Clamp( movement_timer + Time.deltaTime / movement_duration, 0.0f, 1.0f );
 
             float speed_multiplier = movement_curve.Evaluate( movement_timer );
             float current_speed = speed_multiplier * movement_amplitude;
 
-            body.linearVelocityX = movement_vector * current_speed * Time.deltaTime;
+            body.linearVelocityX = movement_vector * current_speed;
         }
+
+        ProcessAnimation();
     }
 
     private void FixedUpdate()
     {
-        //var hits = Physics2D.LinecastAll( transform.position, transform.position + Vector3.down * ground_check );
-        //RaycastHit2D valid_hit = new RaycastHit2D();
-        //bool has_hit = false;
-        //foreach ( var hit in hits )
-        //{
-        //    if ( hit.collider.gameObject == this.gameObject )
-        //        continue;
-        //
-        //    valid_hit = hit;
-        //    has_hit = true;
-        //    break;
-        //}
-        //
-        //if ( !has_hit )
-        //{
-        //    transform.Translate( Vector3.down * gravity * Time.fixedDeltaTime );
-        //}
-        //else if ( !is_jumping ) 
-        //{
-        //    transform.position = new Vector2( transform.position.x, valid_hit.point.y );
-        //}
-    }
+        var hits = Physics2D.LinecastAll( transform.position, transform.position + Vector3.down * ground_check );
+        RaycastHit2D valid_hit = new RaycastHit2D();
+        bool has_hit = false;
+        foreach ( var hit in hits )
+        {
+            if ( hit.collider.gameObject == this.gameObject )
+                continue;
+        
+            valid_hit = hit;
+            has_hit = true;
+            break;
+        }
 
-    void StartJump()
-    {
-        jump_timer = 0.0f;
-        is_jumping = true;
+        is_grounded = has_hit;
     }
 
     private void OnDrawGizmosSelected()

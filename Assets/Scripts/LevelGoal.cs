@@ -2,14 +2,13 @@ using UnityEngine;
 
 public class LevelGoal : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (other.GetComponent<Character>())
+        if (collision.gameObject.GetComponent<Character>())
         {
             NextLevel();
         }
     }
-
     public void NextLevel()
     {
         LevelManager.Instance.LoadNextLevel();

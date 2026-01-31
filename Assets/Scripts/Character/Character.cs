@@ -13,6 +13,8 @@ public enum MaskMode
 [RequireComponent( typeof( Animator ) )]
 public class Character : MonoBehaviour
 {
+    public static Character instance { private set; get; } 
+
     public Mask load_mask;
     public MaskMode mode;
     public SpriteRenderer mask_renderer;
@@ -45,6 +47,8 @@ public class Character : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        instance = this;
+
         if ( load_mask != null )
             EquipMask( load_mask );
     }

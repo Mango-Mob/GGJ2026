@@ -1,23 +1,21 @@
 using UnityEngine;
 using UnityEditor;
 using Unity.VisualScripting;
-
-
-public class TestClass
+public enum MaskMode
 {
-    [MenuItem("Hello/Hello")]
-    static void testfunc()
-    {
-        Debug.Log("Hello");
-    }
+    Manual,
+    Centred,
+    Cursor,
 }
-
 
 [RequireComponent( typeof( Rigidbody2D ) )]
 [RequireComponent( typeof( SpriteRenderer ) )]
 [RequireComponent( typeof( Animator ) )]
 public class Character : MonoBehaviour
 {
+    public Mask load_mask;
+    public MaskMode mode;
+    public SpriteRenderer mask_renderer;
     [SerializeField] private Transform groundCheckBox;
 
     [Header( "Constants" )]
@@ -47,7 +45,14 @@ public class Character : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        if ( load_mask != null )
+            EquipMask( load_mask );
+    }
+
+    public void EquipMask( Mask mask )
+    {
+        mode = mask.mode;
+        mask_renderer.sprite = mask.img;
     }
 
     void ProcessInput()

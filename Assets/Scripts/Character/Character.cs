@@ -112,6 +112,8 @@ public class Character : MonoBehaviour
     {
         var hits = Physics2D.OverlapBoxAll(groundCheckBox.position, groundCheckBox.lossyScale, 0.0f);
 
+        Collider2D groundTarget = null;
+
         //RaycastHit2D valid_hit = new RaycastHit2D();
         bool has_hit = false;
         foreach ( var hit in hits )
@@ -121,6 +123,8 @@ public class Character : MonoBehaviour
         
             //valid_hit = hit;
             has_hit = true;
+            groundTarget = hit;
+
             break;
         }
 
@@ -165,7 +169,6 @@ public class Character : MonoBehaviour
                 body.linearVelocityX = 0.0f;
             }
         }
-
 
     }
 

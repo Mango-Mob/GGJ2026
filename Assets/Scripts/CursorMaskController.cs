@@ -25,13 +25,13 @@ public class CursorMaskController : MonoBehaviour
     {
         if (Character.instance)
         {
-            animator.enabled = Character.instance.mode == MaskMode.Manual && sceneName != "3";
+            animator.enabled = Character.instance.mode == MaskMode.Manual && (sceneName == "1" || sceneName == "2");
             switch (Character.instance.mode)
             {
                 case MaskMode.Manual:
                     break;
                 case MaskMode.Centred:
-                    transform.position = Character.instance.transform.position;
+                    transform.position = Character.instance.transform.position + Vector3.up * 0.25f;
                     break;
                 case MaskMode.Cursor:
                     Vector3 mousePosition = Input.mousePosition;
@@ -42,6 +42,7 @@ public class CursorMaskController : MonoBehaviour
         }
         else // Main menu
         {
+            Debug.Log("Moving cursor mask in menu");
             Vector3 mousePosition = Input.mousePosition;
             Vector3 mouseWorldPosition = cam.ScreenToWorldPoint(mousePosition);
             transform.position = new Vector3(mouseWorldPosition.x, mouseWorldPosition.y, transform.position.z);

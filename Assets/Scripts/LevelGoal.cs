@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelGoal : MonoBehaviour
 {
@@ -11,6 +12,10 @@ public class LevelGoal : MonoBehaviour
     }
     public void NextLevel()
     {
-        LevelManager.Instance.LoadNextLevel();
+        TransitionManager.instance.NextScene();
+    }
+    public void ReloadScene()
+    {
+        TransitionManager.instance.SetScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

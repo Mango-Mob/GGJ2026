@@ -137,11 +137,11 @@ Material:
     - White: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Cool: {r: 0.9227681, g: 0.112916745, b: 0.10971449, a: 1}
+    - _Cool: {r: 0.960788, g: 0.53659743, b: 0.18511525, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _PreTint: {r: 0.4, g: 0.4, b: 0.4, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _Warm: {r: 0.10971449, g: 0.91956574, b: 0.9227681, a: 1}
+    - _Warm: {r: 0.18511525, g: 0.60930574, b: 0.960788, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

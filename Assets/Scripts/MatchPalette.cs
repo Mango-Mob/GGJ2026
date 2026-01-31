@@ -17,7 +17,8 @@ public class MatchPalette : MonoBehaviour
     // Update is called once per frame
     void OnDestroy()
     {
-        PaletteManager.Instance.Remove( this );
+        if( PaletteManager.HasInstance() )
+            PaletteManager.Instance.Remove( this );
     }
 
     public void SetColor( Color A, Color B, int iterations )

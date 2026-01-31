@@ -36,6 +36,15 @@ public class PaletteManager : Utility.SingletonPersistent<PaletteManager>
 
         SetPalette();
     }
+    private void OnApplicationQuit()
+    {
+        foreach ( var texture in textures )
+        {
+            texture.SetColor( "_Warm", Color.black );
+            texture.SetColor( "_Cool", Color.white );
+            texture.SetFloat( "_Iterations", 10 );
+        }
+    }
 
     // Update is called once per frame
     void Update()
@@ -61,7 +70,6 @@ public class PaletteManager : Utility.SingletonPersistent<PaletteManager>
 
         foreach ( var texture in textures )
         {
-
             texture.SetColor( "_Warm", A );
             texture.SetColor( "_Cool", B );
             texture.SetFloat( "_Iterations", iterations );

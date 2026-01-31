@@ -13,8 +13,9 @@ public enum MaskMode
 [RequireComponent( typeof( Animator ) )]
 public class Character : MonoBehaviour
 {
+    public Mask load_mask;
     public MaskMode mode;
-
+    public SpriteRenderer mask_renderer;
     [SerializeField] private Transform groundCheckBox;
 
     [Header( "Constants" )]
@@ -44,7 +45,14 @@ public class Character : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        if ( load_mask != null )
+            EquipMask( load_mask );
+    }
+
+    public void EquipMask( Mask mask )
+    {
+        mode = mask.mode;
+        mask_renderer.sprite = mask.img;
     }
 
     void ProcessInput()

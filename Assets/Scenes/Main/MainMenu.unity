@@ -6435,6 +6435,7 @@ GameObject:
   - component: {fileID: 7200804122020096441}
   - component: {fileID: 4551926969188452534}
   - component: {fileID: 7200804122020096442}
+  - component: {fileID: 7200804122020096443}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -6635,6 +6636,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3752529753604995523}
   m_CullTransparentMesh: 1
+--- !u!114 &7200804122020096443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3752529753604995523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 395941ca8dfd5064f839029b30fb002a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RandomPosition
+  min_x: -8
+  min_y: -4.5
+  max_x: 8.5
+  max_y: 5
 --- !u!1 &7511901658282971758
 GameObject:
   m_ObjectHideFlags: 0

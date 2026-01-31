@@ -44,8 +44,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0751755a65626f43b17e8f6c36738b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  main: {fileID: 2100000, guid: a43f23d95c005b647aadd6b1e528cce9, type: 2}
-  invert: {fileID: 2100000, guid: b4c0cb4bd8eebd444930cb6aabc74416, type: 2}
+  textures:
+  - {fileID: 2100000, guid: a43f23d95c005b647aadd6b1e528cce9, type: 2}
+  - {fileID: 2100000, guid: 0e73825354350af42892ad489e526b18, type: 2}
+  - {fileID: 2100000, guid: 7eb601f1e8f4ce44b81b90a2eaadf34c, type: 2}
+  - {fileID: 2100000, guid: ff89cf455b92bde479211866ae688c4c, type: 2}
+  - {fileID: 2100000, guid: db8fc2f0437677e47b4c470b132f3a49, type: 2}
+  - {fileID: 2100000, guid: b4c0cb4bd8eebd444930cb6aabc74416, type: 2}
+  - {fileID: 2100000, guid: 3936d217068838142887839009f52cce, type: 2}
+  - {fileID: 2100000, guid: da35a593671f17c48962a0ba866bfe41, type: 2}
+  - {fileID: 2100000, guid: e58d288ec4867fb4baa4569562bda890, type: 2}
+  - {fileID: 2100000, guid: 0602f4ece65224e4393a8c7067751c01, type: 2}
   h_min: 0
   h_max: 1
   s_min: 0.7

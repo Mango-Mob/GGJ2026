@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PalletSprite
+  m_Name: 20InvPalette
   m_Shader: {fileID: -6465566751694194690, guid: 5b4637249cf6134498459c57a4f69c07, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -117,8 +117,8 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Invert: 0
-    - _Iterations: 13
+    - _Invert: 1
+    - _Iterations: 4
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
@@ -137,9 +137,11 @@ Material:
     - White: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Cool: {r: 0.011030684, g: 0.6768101, b: 0.78604543, a: 1}
+    - _Cool: {r: 0.9227681, g: 0.112916745, b: 0.10971449, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _PreTint: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _Warm: {r: 0.78604543, g: 0.12026603, b: 0.011030684, a: 1}
+    - _Warm: {r: 0.10971449, g: 0.91956574, b: 0.9227681, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

@@ -3,8 +3,7 @@ using UnityEngine;
 
 public class PaletteManager : Utility.SingletonPersistent<PaletteManager>
 {
-    public Material main;
-    public Material invert;
+    public Material[] textures;
 
     [Range(0, 1F)]
     public float h_min = 0;
@@ -48,12 +47,14 @@ public class PaletteManager : Utility.SingletonPersistent<PaletteManager>
         Color B = Color.HSVToRGB( ( ( h + 180.0f / 360.0f ) * 360 ) % 360 / 360, s, v );
 
         float iterations = Random.Range( i_min, i_max );
-        
-        main.SetColor( "_Warm", A );
-        main.SetColor( "_Cool", B );
-        main.SetFloat( "_Iterations", iterations );
-        invert.SetColor( "_Warm", A );
-        invert.SetColor( "_Cool", B );
-        invert.SetFloat( "_Iterations", iterations );
+
+        foreach ( var texture in textures )
+        {
+            texture.SetColor( "_Warm", A );
+            texture.SetColor( "_Cool", B );
+            texture.SetFloat( "_Iterations", iterations );
+        }
+
+        Camera.main.backgroundColor = B;
     }
 }

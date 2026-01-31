@@ -125,7 +125,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_FlipX
-    path: Mask
+    path: Mask/Mask
     classID: 212
     script: {fileID: 0}
     flags: 0
@@ -169,7 +169,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 3747441678
+      path: 3618532915
       attribute: 555744692
       script: {fileID: 0}
       typeID: 212
@@ -438,7 +438,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_FlipX
-    path: Mask
+    path: Mask/Mask
     classID: 212
     script: {fileID: 0}
     flags: 0

@@ -119,6 +119,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &34616358 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2857546776757173822, guid: 2d6791024eb355e43bc74e1c9d8c8595, type: 3}
+  m_PrefabInstance: {fileID: 311569078}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6687aa59799ba8d4cb74bcfa54dccef2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TransitionManager
 --- !u!1 &82939030
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,6 +280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1e33cbac1836fa4b94387763b616bcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MatchPalette
+  images: []
   texts:
   - {fileID: 82939032}
   tint: 1
@@ -318,6 +330,107 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 212979223}
   m_CullTransparentMesh: 1
+--- !u!1001 &311569078
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1299905283232292794, guid: 2d6791024eb355e43bc74e1c9d8c8595, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1299905283232292794, guid: 2d6791024eb355e43bc74e1c9d8c8595, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1299905283232292794, guid: 2d6791024eb355e43bc74e1c9d8c8595, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1299905283232292794, guid: 2d6791024eb355e43bc74e1c9d8c8595, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1299905283232292794, guid: 2d6791024eb355e43bc74e1c9d8c8595, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1299905283232292794, guid: 2d6791024eb355e43bc74e1c9d8c8595, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1299905283232292794, guid: 2d6791024eb355e43bc74e1c9d8c8595, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1299905283232292794, guid: 2d6791024eb355e43bc74e1c9d8c8595, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1299905283232292794, guid: 2d6791024eb355e43bc74e1c9d8c8595, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1299905283232292794, guid: 2d6791024eb355e43bc74e1c9d8c8595, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1299905283232292794, guid: 2d6791024eb355e43bc74e1c9d8c8595, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1299905283232292794, guid: 2d6791024eb355e43bc74e1c9d8c8595, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1299905283232292794, guid: 2d6791024eb355e43bc74e1c9d8c8595, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1299905283232292794, guid: 2d6791024eb355e43bc74e1c9d8c8595, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1299905283232292794, guid: 2d6791024eb355e43bc74e1c9d8c8595, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1299905283232292794, guid: 2d6791024eb355e43bc74e1c9d8c8595, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1299905283232292794, guid: 2d6791024eb355e43bc74e1c9d8c8595, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1299905283232292794, guid: 2d6791024eb355e43bc74e1c9d8c8595, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1299905283232292794, guid: 2d6791024eb355e43bc74e1c9d8c8595, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1299905283232292794, guid: 2d6791024eb355e43bc74e1c9d8c8595, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2561598199938460777, guid: 2d6791024eb355e43bc74e1c9d8c8595, type: 3}
+      propertyPath: m_Name
+      value: TransitionCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6503412784998493564, guid: 2d6791024eb355e43bc74e1c9d8c8595, type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2d6791024eb355e43bc74e1c9d8c8595, type: 3}
 --- !u!1 &318968616
 GameObject:
   m_ObjectHideFlags: 0
@@ -461,6 +574,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1e33cbac1836fa4b94387763b616bcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MatchPalette
+  images: []
   texts:
   - {fileID: 318968618}
   tint: 1
@@ -690,6 +804,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1e33cbac1836fa4b94387763b616bcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MatchPalette
+  images: []
   texts:
   - {fileID: 576825312}
   tint: 1
@@ -1268,7 +1383,7 @@ GameObject:
   - component: {fileID: 916899092}
   - component: {fileID: 916899091}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Menu Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1736,7 +1851,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1413453842}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 34616358}
+        m_TargetAssemblyTypeName: TransitionManager, Assembly-CSharp
+        m_MethodName: QuitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1413453842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1841,6 +1968,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1e33cbac1836fa4b94387763b616bcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MatchPalette
+  images: []
   texts:
   - {fileID: 1413453842}
   tint: 1
@@ -2231,6 +2359,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1e33cbac1836fa4b94387763b616bcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MatchPalette
+  images: []
   texts:
   - {fileID: 1843957257}
   tint: 1
@@ -2279,9 +2408,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
-        m_MethodName: LoadNextLevel
+      - m_Target: {fileID: 34616358}
+        m_TargetAssemblyTypeName: TransitionManager, Assembly-CSharp
+        m_MethodName: NextScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3254,6 +3383,7 @@ SceneRoots:
   - {fileID: 1912952916}
   - {fileID: 864595427873760138}
   - {fileID: 1629836704}
+  - {fileID: 311569078}
   - {fileID: 916899094}
   - {fileID: 1637467678}
   - {fileID: 1245918216318641628}

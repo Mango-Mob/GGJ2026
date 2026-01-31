@@ -50,4 +50,14 @@ public class TransitionManager : MonoBehaviour
         nextEvent.Invoke();
         nextEvent = null;
     }
+    public void QuitGame()
+    {
+        DoInTransition( () => 
+        {
+            Application.Quit();
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#endif
+        } );
+    }
 }

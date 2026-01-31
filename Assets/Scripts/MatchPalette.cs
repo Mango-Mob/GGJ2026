@@ -1,8 +1,10 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MatchPalette : MonoBehaviour
 {
+    [SerializeField] private Image[] images;
     [SerializeField] private TMP_Text[] texts;
 
     [Range(0, 1F)]
@@ -28,6 +30,8 @@ public class MatchPalette : MonoBehaviour
 
         foreach ( var text in texts )
             text.color = lerped;
+        foreach ( var image in images )
+            image.color = lerped;
     }
 
     public void OnValidate()

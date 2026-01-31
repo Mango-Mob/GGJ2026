@@ -15,13 +15,7 @@ public class Spikes : MonoBehaviour
         if (character)
         {
             isHit = true;
-            StartCoroutine(Kill());
-            IEnumerator Kill()
-            {
-                character.animator.SetTrigger("Death");
-                yield return new WaitForSeconds(1.0f);
-                TransitionManager.instance.SetScene(SceneManager.GetActiveScene().buildIndex);
-            }
+            character.Kill();
         }
     }
 }

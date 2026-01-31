@@ -1,6 +1,9 @@
 using UnityEngine;
 using UnityEditor;
 using Unity.VisualScripting;
+using UnityEngine.SceneManagement;
+using UnityEngine.TextCore.Text;
+using System.Collections;
 public enum MaskMode
 {
     Manual,
@@ -39,7 +42,7 @@ public class Character : MonoBehaviour
     private bool is_jumping = false;
     private bool is_grounded = false;
     private float jump_timer = 0.0f;
-
+    private bool is_dead = false;
     public Animator animator { get { return GetComponent<Animator>(); } }
     private SpriteRenderer visual { get { return GetComponent<SpriteRenderer>(); } }
     private Rigidbody2D body { get { return GetComponent<Rigidbody2D>(); } }
@@ -48,6 +51,8 @@ public class Character : MonoBehaviour
     void Start()
     {
         instance = this;
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
 
         if ( load_mask != null )
             EquipMask( load_mask );
@@ -59,8 +64,25 @@ public class Character : MonoBehaviour
         mask_renderer.sprite = mask.img;
     }
 
+    public void Kill()
+    {
+        StartCoroutine( Death() );
+    }
+
+    IEnumerator Death()
+    {
+        is_dead = true;
+        body.linearVelocity = Vector3.zero;
+        animator.SetTrigger( "Death" );
+        yield return new WaitForSeconds( 1.0f );
+        TransitionManager.instance.SetScene( SceneManager.GetActiveScene().buildIndex );
+    }
+
     void ProcessInput()
     {
+        if ( is_dead )
+            return;
+
         bool left = Input.GetKey( KeyCode.A ) || Input.GetKey( KeyCode.LeftArrow );
         bool right = Input.GetKey( KeyCode.D ) || Input.GetKey( KeyCode.RightArrow );
         bool jump = Input.GetKey( KeyCode.Space ) || Input.GetKey( KeyCode.Keypad0 );
@@ -102,14 +124,14 @@ public class Character : MonoBehaviour
     void Update()
     {
         ProcessInput();
-
-        
-
         ProcessAnimation();
     }
 
     private void FixedUpdate()
     {
+        if ( is_dead )
+            return;
+
         var hits = Physics2D.OverlapBoxAll(groundCheckBox.position, groundCheckBox.lossyScale, 0.0f);
 
         Collider2D groundTarget = null;

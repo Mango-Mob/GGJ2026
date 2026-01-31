@@ -231,7 +231,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   movement_duration: 1
   movement_amplitude: 5
-  movement_drag: 2
+  movement_drag: 10
   jump_curve:
     serializedVersion: 2
     m_Curve:

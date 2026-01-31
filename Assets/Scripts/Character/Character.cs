@@ -72,6 +72,7 @@ public class Character : MonoBehaviour
     IEnumerator Death()
     {
         is_dead = true;
+        is_grounded = true;
         body.linearVelocity = Vector3.zero;
         animator.SetTrigger( "Death" );
         yield return new WaitForSeconds( 1.0f );

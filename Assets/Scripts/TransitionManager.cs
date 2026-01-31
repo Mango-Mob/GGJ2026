@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -43,6 +44,7 @@ public class TransitionManager : MonoBehaviour
         nextEvent = _event;
         animator.Play("TransitionOut");
     }
+
     public void PerformEvent()
     {
         if (nextEvent == null)

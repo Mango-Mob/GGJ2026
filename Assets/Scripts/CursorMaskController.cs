@@ -4,6 +4,8 @@ using UnityEngine.UIElements;
 
 public class CursorMaskController : MonoBehaviour
 {
+    public static CursorMaskController instance { get; private set;}
+
     Camera cam;
     [SerializeField] private Transform insideCursorMask;
     [SerializeField] private Transform outsideCursorMask;
@@ -11,10 +13,13 @@ public class CursorMaskController : MonoBehaviour
     [SerializeField] private float maxMoveSpeed = 5.0f;
     private Animator animator;
     private string sceneName;
+    public Vector2 velocity = Vector2.zero;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        instance = this;
+
         cam = Camera.main;
         animator = GetComponent<Animator>();
 
@@ -27,8 +32,9 @@ public class CursorMaskController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
+        Vector2 lastPosition = transform.position;
         if (Character.instance)
         {
             animator.enabled = Character.instance.mode == MaskMode.Manual && (sceneName == "1" || sceneName == "2");

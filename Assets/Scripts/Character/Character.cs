@@ -111,6 +111,11 @@ public class Character : MonoBehaviour
             movement_timer = 0.0f;
         }
         is_moving = will_move;
+
+        if (Input.GetKeyDown(KeyCode.Escape)) // Main menu
+        {
+            TransitionManager.instance.SetScene(0);
+        }
     }
 
     void ProcessAnimation()

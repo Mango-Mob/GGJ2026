@@ -30,10 +30,8 @@ public class PaletteManager : Utility.SingletonPersistent<PaletteManager>
     protected int iterations;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    protected override void Awake()
+    protected void Start()
     {
-        base.Awake();
-
         SetPalette();
     }
     private void OnApplicationQuit()
@@ -51,7 +49,7 @@ public class PaletteManager : Utility.SingletonPersistent<PaletteManager>
     {
         if ( Input.GetKeyDown( KeyCode.R ) )
         {
-            SetPalette();
+            TransitionManager.instance.DoInTransition( () => { SetPalette(); } );
         }
         
         if ( Camera.main )

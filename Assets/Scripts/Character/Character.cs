@@ -1,23 +1,20 @@
 using UnityEngine;
 using UnityEditor;
 using Unity.VisualScripting;
-
-
-public class TestClass
+public enum MaskMode
 {
-    [MenuItem("Hello/Hello")]
-    static void testfunc()
-    {
-        Debug.Log("Hello");
-    }
+    Manual,
+    Centred,
+    Cursor,
 }
-
 
 [RequireComponent( typeof( Rigidbody2D ) )]
 [RequireComponent( typeof( SpriteRenderer ) )]
 [RequireComponent( typeof( Animator ) )]
 public class Character : MonoBehaviour
 {
+    public MaskMode mode;
+
     [SerializeField] private Transform groundCheckBox;
 
     [Header( "Constants" )]

@@ -20,9 +20,9 @@ public class PaletteManager : Utility.SingletonPersistent<PaletteManager>
     [UnityEngine.Range( 0, 1F )]
     public float v_max = 1F;
 
-    [UnityEngine.Range( 4, 15 )]
+    [UnityEngine.Range( 4, 20 )]
     public int i_min = 4;
-    [UnityEngine.Range( 4, 15 )]
+    [UnityEngine.Range( 4, 20 )]
     public int i_max = 15;
 
     protected Color A;
@@ -64,7 +64,15 @@ public class PaletteManager : Utility.SingletonPersistent<PaletteManager>
 
         float h, s, v;
         Color.RGBToHSV( A, out h, out s, out v );
-        B = Color.HSVToRGB( ( ( h + 180.0f / 360.0f ) * 360 ) % 360 / 360, s, v );
+        var _h = ( ( h + 180.0f / 360.0f ) * 360 ) % 360 / 360;
+        B = Color.HSVToRGB( _h, s, v );
+
+        if ( _h < h )
+        {
+            var C = B;
+            B = A;
+            A = C;
+        }
 
         iterations = Random.Range( i_min, i_max );
 

@@ -55,11 +55,12 @@ MonoBehaviour:
   - {fileID: 2100000, guid: da35a593671f17c48962a0ba866bfe41, type: 2}
   - {fileID: 2100000, guid: e58d288ec4867fb4baa4569562bda890, type: 2}
   - {fileID: 2100000, guid: 0602f4ece65224e4393a8c7067751c01, type: 2}
+  dependancies: []
   h_min: 0
   h_max: 1
-  s_min: 0.7
-  s_max: 1
-  v_min: 0.7
-  v_max: 1
-  i_min: 4
-  i_max: 15
+  s_min: 0.8
+  s_max: 0.9
+  v_min: 0.65
+  v_max: 0.9
+  i_min: 15
+  i_max: 20

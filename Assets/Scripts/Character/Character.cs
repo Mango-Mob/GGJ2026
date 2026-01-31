@@ -170,6 +170,14 @@ public class Character : MonoBehaviour
             }
         }
 
+        if (groundTarget != null)
+            Debug.Log(groundTarget.gameObject.name);
+
+        if (mode == MaskMode.Cursor && groundTarget != null && groundTarget.gameObject.layer == LayerMask.NameToLayer("Mask") && Vector2.Distance(transform.position, CursorMaskController.instance.transform.position) < 0.85f)
+        {
+            body.linearVelocity += (Vector2)CursorMaskController.instance.velocity;
+            Debug.Log("PUSHED");
+        }
     }
 
     private void OnDrawGizmos()

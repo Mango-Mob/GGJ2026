@@ -13,7 +13,7 @@ public class CursorMaskController : MonoBehaviour
     [SerializeField] private float maxMoveSpeed = 5.0f;
     private Animator animator;
     private string sceneName;
-    public Vector2 velocity = Vector2.zero;
+    public Vector3 velocity = Vector2.zero;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -34,7 +34,7 @@ public class CursorMaskController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Vector2 lastPosition = transform.position;
+        Vector3 lastPosition = transform.position;
         if (Character.instance)
         {
             animator.enabled = Character.instance.mode == MaskMode.Manual && (sceneName == "1" || sceneName == "2");
@@ -59,6 +59,8 @@ public class CursorMaskController : MonoBehaviour
             Vector3 mouseWorldPosition = cam.ScreenToWorldPoint(mousePosition);
             transform.position = new Vector3(mouseWorldPosition.x, mouseWorldPosition.y, transform.position.z);
         }
+
+        velocity = transform.position - lastPosition;
 
         insideCursorMask.position = transform.position;
         outsideCursorMask.position = transform.position;

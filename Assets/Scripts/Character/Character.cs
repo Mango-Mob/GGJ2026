@@ -40,7 +40,7 @@ public class Character : MonoBehaviour
     private bool is_grounded = false;
     private float jump_timer = 0.0f;
 
-    private Animator animator { get { return GetComponent<Animator>(); } }
+    public Animator animator { get { return GetComponent<Animator>(); } }
     private SpriteRenderer visual { get { return GetComponent<SpriteRenderer>(); } }
     private Rigidbody2D body { get { return GetComponent<Rigidbody2D>(); } }
 
@@ -170,15 +170,24 @@ public class Character : MonoBehaviour
             }
         }
 
-        if (groundTarget != null)
-            Debug.Log(groundTarget.gameObject.name);
+        //if (groundTarget != null)
+        //    Debug.Log(groundTarget.gameObject.name);
 
-        if (mode == MaskMode.Cursor && groundTarget != null && groundTarget.gameObject.layer == LayerMask.NameToLayer("Mask") && Vector2.Distance(transform.position, CursorMaskController.instance.transform.position) < 0.85f)
+        //modeCheck = mode == MaskMode.Cursor;
+        //groundCheck = groundTarget != null;
+        //layerCheck = groundTarget.gameObject.layer == LayerMask.NameToLayer("Mask");
+        //distanceCheck = Vector2.Distance(transform.position, CursorMaskController.instance.transform.position);
+
+        if (mode == MaskMode.Cursor && groundTarget != null && groundTarget.gameObject.layer == LayerMask.NameToLayer("Mask") && Vector2.Distance(transform.position, CursorMaskController.instance.transform.position) < 1.15f)
         {
             body.linearVelocity += (Vector2)CursorMaskController.instance.velocity;
-            Debug.Log("PUSHED");
         }
     }
+
+    //bool modeCheck = false;
+    //bool groundCheck = false;
+    //bool layerCheck = false;
+    //float distanceCheck = 0.0f;
 
     private void OnDrawGizmos()
     {
@@ -186,5 +195,8 @@ public class Character : MonoBehaviour
         //Gizmos.DrawLine( transform.position, transform.position + Vector3.down * ground_check );
 
         Gizmos.DrawWireCube(groundCheckBox.position, groundCheckBox.lossyScale);
+
+        if (CursorMaskController.instance != null) 
+            Gizmos.DrawLine(transform.position, CursorMaskController.instance.transform.position);
     }
 }

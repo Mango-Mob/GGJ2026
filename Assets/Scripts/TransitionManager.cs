@@ -24,6 +24,10 @@ public class TransitionManager : MonoBehaviour
     public void NextScene()
     {
         int sceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+        if (sceneIndex > SceneManager.sceneCount - 1)
+        {
+            sceneIndex = 0;
+        }
         SetScene(sceneIndex);
     }
     public void SetScene(int _index)

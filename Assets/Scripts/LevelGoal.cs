@@ -12,6 +12,7 @@ public class LevelGoal : MonoBehaviour
     }
     public void NextLevel()
     {
+        Character.instance.PlayAudio(4);
         TransitionManager.instance.NextScene();
     }
     public void ReloadScene()

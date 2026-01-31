@@ -106,6 +106,7 @@ GameObject:
   - component: {fileID: 2306366409548189916}
   - component: {fileID: 8396889582334726197}
   - component: {fileID: 6562845042932662343}
+  - component: {fileID: 78898090603488173}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -366,6 +367,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aab0ae72a3ef15e47a94115aae76fb34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TestObject
+--- !u!114 &78898090603488173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388199728430246621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45f6540cec3354644adc2839f73fdf67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.MultiAudioAgent
+  clips:
+  - {fileID: 8300000, guid: 7d25e313320aab24889f588e785677a3, type: 3}
+  - {fileID: 8300000, guid: 534d85a984b17624c9cf8123db95728f, type: 3}
+  - {fileID: 8300000, guid: 857097e678678eb45a07b4aaf713ff88, type: 3}
+  - {fileID: 8300000, guid: d940bf6fc8626b84ca12063e28478f64, type: 3}
+  - {fileID: 8300000, guid: 1d9e11d38ef8b9d4997afc2bfc369398, type: 3}
+  audioPlayersCount: 5
+  channel: 0
 --- !u!1 &824811228379379059
 GameObject:
   m_ObjectHideFlags: 0

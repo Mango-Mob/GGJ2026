@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine.SceneManagement;
 using UnityEngine.TextCore.Text;
 using System.Collections;
+using Audio;
 public enum MaskMode
 {
     Manual,
@@ -46,6 +47,7 @@ public class Character : MonoBehaviour
     public Animator animator { get { return GetComponent<Animator>(); } }
     private SpriteRenderer visual { get { return GetComponent<SpriteRenderer>(); } }
     private Rigidbody2D body { get { return GetComponent<Rigidbody2D>(); } }
+    private MultiAudioAgent audioAgent;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -54,12 +56,19 @@ public class Character : MonoBehaviour
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
 
+        audioAgent = GetComponent<MultiAudioAgent>();
+
         if ( load_mask != null )
-            EquipMask( load_mask );
+            EquipMask( load_mask, true );
     }
 
-    public void EquipMask( Mask mask )
+    public void EquipMask(Mask mask, bool _muted = false )
     {
+        if (!_muted)
+        {
+            audioAgent.Play(3);
+        }
+
         mode = mask.mode;
         mask_renderer.sprite = mask.img;
     }
@@ -71,6 +80,7 @@ public class Character : MonoBehaviour
 
     IEnumerator Death()
     {
+        audioAgent.Play(2);
         is_dead = true;
         body.linearVelocity = Vector3.zero;
         animator.SetTrigger( "Death" );
@@ -155,6 +165,10 @@ public class Character : MonoBehaviour
             break;
         }
 
+        if (has_hit != is_grounded && has_hit)
+        {
+            audioAgent.Play(1);
+        }
         is_grounded = has_hit;
 
 
@@ -174,6 +188,7 @@ public class Character : MonoBehaviour
         if ((!is_jumping || !is_grounded) && jump_timer > 0)
         {
             body.linearVelocityY += jump_curve.Evaluate(jump_timer) * jump_amplitude;
+            audioAgent.Play(0);
             //movement_timer = jump_curve.Evaluate(jump_timer);
             //body.linearVelocityX = movement_curve.Evaluate(movement_timer) * movement_vector * 0.6f;
             jump_timer = 0.0f;
@@ -215,6 +230,11 @@ public class Character : MonoBehaviour
     //bool groundCheck = false;
     //bool layerCheck = false;
     //float distanceCheck = 0.0f;
+
+    public void PlayAudio(int _index)
+    {
+        audioAgent.Play(4);
+    }
 
     private void OnDrawGizmos()
     {

@@ -2114,8 +2114,8 @@ Transform:
   m_GameObject: {fileID: 611520379}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8, y: -2.5, z: -1}
-  m_LocalScale: {x: 0.54, y: 0.54, z: 0.27}
+  m_LocalPosition: {x: 6.7, y: -2.7, z: -1}
+  m_LocalScale: {x: 0.45, y: 0.45, z: 0.225}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1229239485}
@@ -2619,7 +2619,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 230, y: -45}
+  m_AnchoredPosition: {x: 230, y: 3.4}
   m_SizeDelta: {x: 460, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &671508386
@@ -3163,7 +3163,7 @@ Transform:
   m_GameObject: {fileID: 886791671}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.28, y: -2.08, z: 0}
+  m_LocalPosition: {x: 3.28, y: -1.11, z: 0}
   m_LocalScale: {x: 6.08, y: 0.742987, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6723,24 +6723,24 @@ CompositeCollider2D:
         Y: -13714935
   - m_Collider: {fileID: 611520381}
     m_ColliderPaths:
-    - - X: 82700008
-        Y: -22300000
-      - X: 77300000
-        Y: -22300000
-      - X: 77300000
-        Y: -27700000
-      - X: 82700008
-        Y: -27700000
+    - - X: 69250000
+        Y: -24750002
+      - X: 64750000
+        Y: -24750002
+      - X: 64750000
+        Y: -29250000
+      - X: 69250000
+        Y: -29250000
   - m_Collider: {fileID: 886791673}
     m_ColliderPaths:
     - - X: 63199996
-        Y: -17085064
+        Y: -7385065
       - X: 2400000
-        Y: -17085064
+        Y: -7385065
       - X: 2400000
-        Y: -24514936
+        Y: -14814935
       - X: 63199996
-        Y: -24514936
+        Y: -14814935
   - m_Collider: {fileID: 2077461576651787953}
     m_ColliderPaths:
     - - X: -52814744
@@ -6897,14 +6897,14 @@ CompositeCollider2D:
       - {x: -3.821556, y: -0.6285065}
       - {x: -8.925474, y: -0.6285358}
       - {x: -8.925444, y: -1.3714935}
-    - - {x: 6.3199706, y: -2.4514937}
-      - {x: 6.3199706, y: -1.7085065}
-      - {x: 0.24000001, y: -1.7085357}
-      - {x: 0.2400293, y: -2.4514937}
-    - - {x: 8.269971, y: -2.77}
-      - {x: 8.269971, y: -2.23}
-      - {x: 7.73, y: -2.2300293}
-      - {x: 7.7300296, y: -2.77}
+    - - {x: 6.3199706, y: -1.4814935}
+      - {x: 6.3199706, y: -0.7385065}
+      - {x: 0.24000001, y: -0.7385358}
+      - {x: 0.2400293, y: -1.4814935}
+    - - {x: 6.9249706, y: -2.925}
+      - {x: 6.9249706, y: -2.4750001}
+      - {x: 6.475, y: -2.4750297}
+      - {x: 6.4750295, y: -2.925}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0

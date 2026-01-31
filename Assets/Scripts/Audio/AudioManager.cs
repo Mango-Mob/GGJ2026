@@ -22,7 +22,7 @@ namespace Audio
         public List<Audio.Player> playing_audio = new List<Audio.Player>();
         [ReadOnlyAttribute(true)] public int playing = 0;
 
-        public float master_volume { get; protected set; } = 1.0f;
+        public float master_volume { get; set; } = 1.0f;
         private float[] volumes = new float[ ( int )VolumeChannel.NumVolumeTypes ];
 
         private AudioAgent global_agent;

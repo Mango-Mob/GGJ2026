@@ -22,7 +22,8 @@ public class CursorMaskController : MonoBehaviour
 
         cam = Camera.main;
         animator = GetComponent<Animator>();
-        animator.enabled = false;
+        if ( animator != null ) 
+            animator.enabled = false;
 
         sceneName = SceneManager.GetActiveScene().name;
 
@@ -38,7 +39,9 @@ public class CursorMaskController : MonoBehaviour
         Vector3 lastPosition = transform.position;
         if (Character.instance)
         {
-            animator.enabled = Character.instance.mode == MaskMode.Manual && (sceneName == "1" || sceneName == "2");
+            if ( animator != null )
+                animator.enabled = Character.instance.mode == MaskMode.Manual && (sceneName == "1" || sceneName == "2");
+
             switch (Character.instance.mode)
             {
                 case MaskMode.Manual:

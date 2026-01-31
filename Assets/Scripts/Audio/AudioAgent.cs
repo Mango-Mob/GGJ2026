@@ -95,6 +95,11 @@ namespace Audio
             back_player.OnDestroy();
         }
 
+        public void Play()
+        {
+            Play( clip );
+        }
+
         public void ForcePlay( AudioClip clip, float fade_duration = 0.0f, bool random_pitch = false )
         {
             StopBuffer( ref player );

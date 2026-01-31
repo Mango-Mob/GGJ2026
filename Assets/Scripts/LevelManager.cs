@@ -55,32 +55,32 @@ public class LevelManager : SingletonPersistent<LevelManager>
 
     public void ReloadLevel()
     {
-        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().name));
+        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex ) );
     }
     public void LoadNextLevel()
     {
         loadingNextArea = true;
         if (SceneManager.sceneCountInBuildSettings <= SceneManager.GetActiveScene().buildIndex + 1) // Check if index exceeds scene count
         {
-            StartCoroutine(LoadLevel(SceneManager.GetSceneByBuildIndex(0).name)); // Load menu
+            StartCoroutine( LoadLevel( 0 ) ); // Load menu
         }
         else
         {
-            StartCoroutine(LoadLevel(SceneManager.GetSceneByBuildIndex(SceneManager.GetActiveScene().buildIndex + 1).name)); // Loade next scene
+            StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1)); // Loade next scene
         }
     }
-    public void LoadNewLevel(string _name, Transition _transition = Transition.CROSSFADE)
+    public void LoadNewLevel( int _index, Transition _transition = Transition.CROSSFADE)
     {
         if (!isTransitioning)
-            StartCoroutine(LoadLevel(_name, _transition));
+            StartCoroutine(LoadLevel( _index, _transition));
     }
     public void ResetScene()
     {
         loadingNextArea = true;
-        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().name));
+        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex));
     }
 
-    IEnumerator LoadLevel(string _name, Transition _transition = Transition.CROSSFADE)
+    IEnumerator LoadLevel(int _index, Transition _transition = Transition.CROSSFADE)
     {
         float timeMult = 1.0f;
         isTransitioning = true;
@@ -100,7 +100,7 @@ public class LevelManager : SingletonPersistent<LevelManager>
             // Loading screen
             Slider loadingBar = Instantiate(loadingBarPrefab, transition.transform).GetComponent<Slider>();
             loadingBar.transform.SetAsLastSibling();
-            AsyncOperation gameLoad = SceneManager.LoadSceneAsync(_name);
+            AsyncOperation gameLoad = SceneManager.LoadSceneAsync(_index);
             while (!gameLoad.isDone)
             {
                 float progress = Mathf.Clamp01(gameLoad.progress / 0.9f);
@@ -123,7 +123,7 @@ public class LevelManager : SingletonPersistent<LevelManager>
         if(transition)
             transition.speed = 1.0f / timeMult;
 
-        SceneManager.LoadScene(_name);
+        SceneManager.LoadScene( _index );
         yield return new WaitForSeconds(transitionTime * timeMult);
 
         if (transition != null)

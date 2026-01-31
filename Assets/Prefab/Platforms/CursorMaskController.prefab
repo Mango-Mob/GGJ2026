@@ -48,6 +48,8 @@ MonoBehaviour:
   insideCursorMask: {fileID: 0}
   outsideCursorMask: {fileID: 0}
   rotateSpeed: 45
+  maxMoveSpeed: 10
+  velocity: {x: 0, y: 0}
 --- !u!212 &2312304396159858035
 SpriteRenderer:
   serializedVersion: 2

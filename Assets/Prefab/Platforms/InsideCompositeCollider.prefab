@@ -199,7 +199,7 @@ GameObject:
   - component: {fileID: 366768309826709983}
   - component: {fileID: 6043990832430910011}
   - component: {fileID: 9027331705098420669}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: InsideCompositeCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}

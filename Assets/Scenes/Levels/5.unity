@@ -4713,14 +4713,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelEssentials
       objectReference: {fileID: 0}
-    - target: {fileID: 6534333961309824920, guid: 1512388d933bdfd48990d63a741363fb, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7158883665797975413, guid: 1512388d933bdfd48990d63a741363fb, type: 3}
-      propertyPath: maxMoveSpeed
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 8540559080826895878, guid: 1512388d933bdfd48990d63a741363fb, type: 3}
       propertyPath: load_mask
       value: 

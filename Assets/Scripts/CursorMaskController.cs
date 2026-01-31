@@ -6,6 +6,7 @@ public class CursorMaskController : MonoBehaviour
     Camera cam;
     [SerializeField] private Transform insideCursorMask;
     [SerializeField] private Transform outsideCursorMask;
+    [SerializeField] private float rotateSpeed = 45.0f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -22,5 +23,7 @@ public class CursorMaskController : MonoBehaviour
 
         insideCursorMask.position = transform.position;
         outsideCursorMask.position = transform.position;
+
+        transform.Rotate(Vector3.forward * rotateSpeed * Time.deltaTime);
     }
 }

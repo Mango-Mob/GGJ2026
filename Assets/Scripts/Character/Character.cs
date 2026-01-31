@@ -1,11 +1,25 @@
-using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEditor;
+using Unity.VisualScripting;
+
+
+public class TestClass
+{
+    [MenuItem("Hello/Hello")]
+    static void testfunc()
+    {
+        Debug.Log("Hello");
+    }
+}
+
 
 [RequireComponent( typeof( Rigidbody2D ) )]
 [RequireComponent( typeof( SpriteRenderer ) )]
 [RequireComponent( typeof( Animator ) )]
 public class Character : MonoBehaviour
 {
+    [SerializeField] private Transform groundCheckBox;
+
     [Header( "Constants" )]
     [SerializeField] private float ground_check = 1.0f;
 
@@ -13,6 +27,7 @@ public class Character : MonoBehaviour
     [SerializeField] protected AnimationCurve movement_curve;
     [SerializeField] protected float movement_duration = 1.0f;
     [SerializeField] protected float movement_amplitude = 1.0f;
+    [SerializeField] private float movement_drag = 2.0f;
     private bool is_moving = false;
     private float movement_timer = 0.0f;
     private int movement_vector = 0;
@@ -49,18 +64,18 @@ public class Character : MonoBehaviour
         if ( right )
             movement_vector += 1;
 
-        if ( jump && is_grounded )
+        if ( jump && is_grounded)
         {
             is_jumping = true;
-            movement_vector = 0;
+            //movement_vector = 0;
         }
-        else if ( !jump )
+        else
         {
             is_jumping = false;
         }
 
         bool will_move = movement_vector != 0;
-        if ( is_moving != will_move )
+        if ( is_moving != will_move && !is_jumping)
         {
             movement_timer = 0.0f;
         }
@@ -79,57 +94,77 @@ public class Character : MonoBehaviour
     {
         ProcessInput();
 
-        if ( is_jumping )
-        {
-            body.linearVelocityX = 0;
-            jump_timer += Time.deltaTime / jump_duration;
-            if ( jump_timer > 1.0f )
-            {
-                jump_timer = 1.0f;
-                is_jumping = false;
-            }
-        }
-
-        if ( !is_jumping && jump_timer > 0 ) 
-        {
-            body.linearVelocityY += jump_curve.Evaluate( jump_timer ) * jump_amplitude;
-            jump_timer = 0.0f;
-        }
-
-        if ( !is_jumping && is_moving )
-        {
-            movement_timer = Mathf.Clamp( movement_timer + Time.deltaTime / movement_duration, 0.0f, 1.0f );
-
-            float speed_multiplier = movement_curve.Evaluate( movement_timer );
-            float current_speed = speed_multiplier * movement_amplitude;
-
-            body.linearVelocityX = movement_vector * current_speed;
-        }
+        
 
         ProcessAnimation();
     }
 
     private void FixedUpdate()
     {
-        var hits = Physics2D.LinecastAll( transform.position, transform.position + Vector3.down * ground_check );
-        RaycastHit2D valid_hit = new RaycastHit2D();
+        var hits = Physics2D.OverlapBoxAll(groundCheckBox.position, groundCheckBox.lossyScale, 0.0f);
+
+        //RaycastHit2D valid_hit = new RaycastHit2D();
         bool has_hit = false;
         foreach ( var hit in hits )
         {
-            if ( hit.collider.gameObject == this.gameObject )
+            if (hit.gameObject == this.gameObject )
                 continue;
         
-            valid_hit = hit;
+            //valid_hit = hit;
             has_hit = true;
             break;
         }
 
         is_grounded = has_hit;
+
+
+
+        // Movement
+        if (is_jumping)
+        {
+            body.linearVelocityX = 0;
+            jump_timer += Time.deltaTime / jump_duration;
+            if (jump_timer > 1.0f)
+            {
+                jump_timer = 1.0f;
+                //is_jumping = false;
+            }
+        }
+
+        if ((!is_jumping || !is_grounded) && jump_timer > 0)
+        {
+            body.linearVelocityY += jump_curve.Evaluate(jump_timer) * jump_amplitude;
+            movement_timer = jump_timer;
+            body.linearVelocityX = movement_curve.Evaluate(0.5f) * movement_vector;
+            jump_timer = 0.0f;
+        }
+        else if ((!is_jumping) && is_moving)
+        {
+            movement_timer = Mathf.Clamp(movement_timer + Time.fixedDeltaTime / movement_duration, 0.0f, 1.0f);
+
+            float speed_multiplier = movement_curve.Evaluate(movement_timer);
+            float current_speed = speed_multiplier * movement_amplitude;
+
+            body.linearVelocityX = movement_vector * current_speed;
+        }
+        else if (is_grounded && !is_moving) // Slowing
+        {
+            float oldVel = body.linearVelocityX;
+            body.linearVelocityX -= Mathf.Sign(body.linearVelocityX) * Time.fixedDeltaTime * movement_drag;
+            if (Mathf.Sign(body.linearVelocityX) != Mathf.Sign(oldVel))
+            {
+                body.linearVelocityX = 0.0f;
+            }
+        }
+
+
     }
 
-    private void OnDrawGizmosSelected()
+    private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawLine( transform.position, transform.position + Vector3.down * ground_check );
+        //Gizmos.DrawLine( transform.position, transform.position + Vector3.down * ground_check );
+
+        Gizmos.DrawWireCube(groundCheckBox.position, groundCheckBox.lossyScale);
     }
 }

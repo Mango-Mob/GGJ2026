@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3445493568873187938
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2311522379107752401}
+  - component: {fileID: 8123826479013306891}
+  m_Layer: 0
+  m_Name: PaletteManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2311522379107752401
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3445493568873187938}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.3255, y: 0.90675, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8123826479013306891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3445493568873187938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0751755a65626f43b17e8f6c36738b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  textures:
+  - {fileID: 2100000, guid: a43f23d95c005b647aadd6b1e528cce9, type: 2}
+  - {fileID: 2100000, guid: 0e73825354350af42892ad489e526b18, type: 2}
+  - {fileID: 2100000, guid: 7eb601f1e8f4ce44b81b90a2eaadf34c, type: 2}
+  - {fileID: 2100000, guid: ff89cf455b92bde479211866ae688c4c, type: 2}
+  - {fileID: 2100000, guid: db8fc2f0437677e47b4c470b132f3a49, type: 2}
+  - {fileID: 2100000, guid: b4c0cb4bd8eebd444930cb6aabc74416, type: 2}
+  - {fileID: 2100000, guid: 3936d217068838142887839009f52cce, type: 2}
+  - {fileID: 2100000, guid: da35a593671f17c48962a0ba866bfe41, type: 2}
+  - {fileID: 2100000, guid: e58d288ec4867fb4baa4569562bda890, type: 2}
+  - {fileID: 2100000, guid: 0602f4ece65224e4393a8c7067751c01, type: 2}
+  h_min: 0
+  h_max: 1
+  s_min: 0.7
+  s_max: 1
+  v_min: 0.7
+  v_max: 1
+  i_min: 4
+  i_max: 15

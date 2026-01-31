@@ -134,8 +134,8 @@ public class Character : MonoBehaviour
         if ((!is_jumping || !is_grounded) && jump_timer > 0)
         {
             body.linearVelocityY += jump_curve.Evaluate(jump_timer) * jump_amplitude;
-            movement_timer = jump_timer;
-            body.linearVelocityX = movement_curve.Evaluate(0.5f) * movement_vector;
+            //movement_timer = jump_curve.Evaluate(jump_timer);
+            //body.linearVelocityX = movement_curve.Evaluate(movement_timer) * movement_vector * 0.6f;
             jump_timer = 0.0f;
         }
         else if ((!is_jumping) && is_moving)

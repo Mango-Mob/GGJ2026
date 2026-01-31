@@ -42,7 +42,7 @@ public class Character : MonoBehaviour
     private bool is_jumping = false;
     private bool is_grounded = false;
     private float jump_timer = 0.0f;
-    private bool is_dead = false;
+    public bool is_dead { private set; get; } = false;
     public Animator animator { get { return GetComponent<Animator>(); } }
     private SpriteRenderer visual { get { return GetComponent<SpriteRenderer>(); } }
     private Rigidbody2D body { get { return GetComponent<Rigidbody2D>(); } }

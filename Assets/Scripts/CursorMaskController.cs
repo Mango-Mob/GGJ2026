@@ -52,7 +52,8 @@ public class CursorMaskController : MonoBehaviour
                 case MaskMode.Cursor:
                     Vector3 mousePosition = Input.mousePosition;
                     Vector3 mouseWorldPosition = cam.ScreenToWorldPoint(mousePosition);
-                    transform.position = Vector3.MoveTowards(transform.position, new Vector3(mouseWorldPosition.x, mouseWorldPosition.y, transform.position.z), maxMoveSpeed * Time.fixedDeltaTime);
+                    if (!Character.instance.is_dead)
+                        transform.position = Vector3.MoveTowards(transform.position, new Vector3(mouseWorldPosition.x, mouseWorldPosition.y, transform.position.z), maxMoveSpeed * Time.fixedDeltaTime);
                     break;
             }
         }

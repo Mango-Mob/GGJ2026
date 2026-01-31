@@ -58,7 +58,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a43f23d95c005b647aadd6b1e528cce9, type: 2}
+  - {fileID: 2100000, guid: b4c0cb4bd8eebd444930cb6aabc74416, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -156,7 +156,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a43f23d95c005b647aadd6b1e528cce9, type: 2}
+  - {fileID: 2100000, guid: b4c0cb4bd8eebd444930cb6aabc74416, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -201,6 +201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a0f7ad84694b5f4d98fea3da101e29a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Character
+  load_mask: {fileID: 0}
   mode: 0
   mask_renderer: {fileID: 2268949357533704227}
   groundCheckBox: {fileID: 441566094360860670}

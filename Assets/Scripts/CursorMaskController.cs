@@ -22,6 +22,7 @@ public class CursorMaskController : MonoBehaviour
 
         cam = Camera.main;
         animator = GetComponent<Animator>();
+        animator.enabled = false;
 
         sceneName = SceneManager.GetActiveScene().name;
 

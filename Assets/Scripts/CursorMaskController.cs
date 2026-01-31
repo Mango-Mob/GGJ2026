@@ -8,6 +8,7 @@ public class CursorMaskController : MonoBehaviour
     [SerializeField] private Transform insideCursorMask;
     [SerializeField] private Transform outsideCursorMask;
     [SerializeField] private float rotateSpeed = 45.0f;
+    [SerializeField] private float maxMoveSpeed = 5.0f;
     private Animator animator;
     private string sceneName;
 
@@ -18,6 +19,11 @@ public class CursorMaskController : MonoBehaviour
         animator = GetComponent<Animator>();
 
         sceneName = SceneManager.GetActiveScene().name;
+
+        if (Character.instance && Character.instance.mode == MaskMode.Cursor) // Start on player
+        {
+            transform.position = Character.instance.transform.position + Vector3.up * 0.25f;
+        }
     }
 
     // Update is called once per frame
@@ -36,13 +42,13 @@ public class CursorMaskController : MonoBehaviour
                 case MaskMode.Cursor:
                     Vector3 mousePosition = Input.mousePosition;
                     Vector3 mouseWorldPosition = cam.ScreenToWorldPoint(mousePosition);
-                    transform.position = new Vector3(mouseWorldPosition.x, mouseWorldPosition.y, transform.position.z);
+                    transform.position = Vector3.MoveTowards(transform.position, new Vector3(mouseWorldPosition.x, mouseWorldPosition.y, transform.position.z), maxMoveSpeed * Time.fixedDeltaTime);
                     break;
             }
         }
         else // Main menu
         {
-            Debug.Log("Moving cursor mask in menu");
+            //Debug.Log("Moving cursor mask in menu");
             Vector3 mousePosition = Input.mousePosition;
             Vector3 mouseWorldPosition = cam.ScreenToWorldPoint(mousePosition);
             transform.position = new Vector3(mouseWorldPosition.x, mouseWorldPosition.y, transform.position.z);

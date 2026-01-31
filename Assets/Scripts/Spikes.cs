@@ -5,7 +5,8 @@ public class Spikes : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<Character>())
+        Character character = collision.gameObject.GetComponent<Character>();
+        if (character)
         {
             TransitionManager.instance.SetScene(SceneManager.GetActiveScene().buildIndex);
         }

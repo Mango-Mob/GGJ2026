@@ -2114,7 +2114,7 @@ Transform:
   m_GameObject: {fileID: 611520379}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.25, y: -2.35, z: -1}
+  m_LocalPosition: {x: 8, y: -2.5, z: -1}
   m_LocalScale: {x: 0.54, y: 0.54, z: 0.27}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -6434,6 +6434,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7200804122020096441}
   - component: {fileID: 4551926969188452534}
+  - component: {fileID: 7200804122020096442}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -6606,22 +6607,34 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7200804122020096441
-Transform:
+--- !u!224 &7200804122020096441
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3752529753604995523}
-  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8, y: 4.74, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.4598, y: 1.4598, z: 1.4598}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1207891783}
   m_Father: {fileID: 1245918216318641628}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -8, y: 4.74}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &7200804122020096442
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3752529753604995523}
+  m_CullTransparentMesh: 1
 --- !u!1 &7511901658282971758
 GameObject:
   m_ObjectHideFlags: 0
@@ -6710,14 +6723,14 @@ CompositeCollider2D:
         Y: -13714935
   - m_Collider: {fileID: 611520381}
     m_ColliderPaths:
-    - - X: 75200000
-        Y: -20800000
-      - X: 69800000
-        Y: -20800000
-      - X: 69800000
-        Y: -26199998
-      - X: 75200000
-        Y: -26199998
+    - - X: 82700008
+        Y: -22300000
+      - X: 77300000
+        Y: -22300000
+      - X: 77300000
+        Y: -27700000
+      - X: 82700008
+        Y: -27700000
   - m_Collider: {fileID: 886791673}
     m_ColliderPaths:
     - - X: 63199996
@@ -6888,10 +6901,10 @@ CompositeCollider2D:
       - {x: 6.3199706, y: -1.7085065}
       - {x: 0.24000001, y: -1.7085357}
       - {x: 0.2400293, y: -2.4514937}
-    - - {x: 7.5199704, y: -2.62}
-      - {x: 7.5199704, y: -2.08}
-      - {x: 6.98, y: -2.0800292}
-      - {x: 6.9800296, y: -2.62}
+    - - {x: 8.269971, y: -2.77}
+      - {x: 8.269971, y: -2.23}
+      - {x: 7.73, y: -2.2300293}
+      - {x: 7.7300296, y: -2.77}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0

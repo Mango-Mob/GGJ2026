@@ -24,8 +24,9 @@ public class TransitionManager : MonoBehaviour
     public void NextScene()
     {
         int sceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
-        if (sceneIndex > SceneManager.sceneCount - 1)
+        if (sceneIndex > SceneManager.sceneCountInBuildSettings - 1)
         {
+            Debug.Log("Resetting");
             sceneIndex = 0;
         }
         SetScene(sceneIndex);

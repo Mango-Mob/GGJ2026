@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8253628844833443861}
   - component: {fileID: 8059652120489083125}
   - component: {fileID: 2857546776757173822}
+  - component: {fileID: 5821809266475511175}
   m_Layer: 5
   m_Name: TransitionCanvas
   m_TagString: Untagged
@@ -138,6 +139,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6687aa59799ba8d4cb74bcfa54dccef2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TransitionManager
+  interuptable: 0
+--- !u!114 &5821809266475511175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2561598199938460777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04a0fff9bb2e67d4f815038347d90c45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.AudioAgent
+  clip: {fileID: 8300000, guid: 7b91027adb969d74a89cf9416ac8d9c4, type: 3}
+  channel: 0
+  playOnAwake: 0
+  loop: 0
+  PlayingProgress: 0
 --- !u!1 &4179950277757224381
 GameObject:
   m_ObjectHideFlags: 0

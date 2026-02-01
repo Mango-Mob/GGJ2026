@@ -11,6 +11,7 @@ public class TransitionManager : MonoBehaviour
     Animator animator;
 
     public TransitionEvent nextEvent;
+    public bool interuptable = false;
 
     private void Awake()
     {
@@ -36,11 +37,19 @@ public class TransitionManager : MonoBehaviour
     {
         DoInTransition(() => { SceneManager.LoadScene(_index); });
     }
-    public void DoInTransition(TransitionEvent _event)
+    public void DoInTransition(TransitionEvent _event, bool is_interuptable = false )
     {
         if (nextEvent != null)
+        {
+            if( interuptable )
+            {
+                nextEvent = _event;
+                interuptable = is_interuptable;
+            }
             return;
+        }
 
+        interuptable = is_interuptable;
         nextEvent = _event;
         animator.Play("TransitionOut");
     }

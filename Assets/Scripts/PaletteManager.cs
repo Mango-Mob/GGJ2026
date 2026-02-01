@@ -49,7 +49,7 @@ public class PaletteManager : Utility.SingletonPersistent<PaletteManager>
     {
         if ( Input.GetKeyDown( KeyCode.R ) )
         {
-            TransitionManager.instance.DoInTransition( () => { SetPalette(); } );
+            TransitionManager.instance.DoInTransition( () => { SetPalette(); }, true );
         }
         
         if ( Camera.main )

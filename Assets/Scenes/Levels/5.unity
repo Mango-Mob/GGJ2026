@@ -5346,7 +5346,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 541839177137595300, guid: 5331d9b971cfd8a4196c37ea92736d42, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.12
+      value: -6.1027
       objectReference: {fileID: 0}
     - target: {fileID: 541839177137595300, guid: 5331d9b971cfd8a4196c37ea92736d42, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5402,7 +5402,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4507557337491220934, guid: 5331d9b971cfd8a4196c37ea92736d42, type: 3}
       propertyPath: m_Size.x
-      value: 9.599764
+      value: 9.609689
       objectReference: {fileID: 0}
     - target: {fileID: 4507557337491220934, guid: 5331d9b971cfd8a4196c37ea92736d42, type: 3}
       propertyPath: m_DrawMode

@@ -468,7 +468,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Space to Jump
+  m_text: Hold & Release Space to Jump
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ebc9b971b630b5b4da9e494a5535f732, type: 2}
   m_sharedMaterial: {fileID: -6067597082217085893, guid: ebc9b971b630b5b4da9e494a5535f732, type: 2}
@@ -626,7 +626,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 2.22, y: -1.68}
-  m_SizeDelta: {x: 20, y: 5}
+  m_SizeDelta: {x: 21.77, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &972330094
 PrefabInstance:

@@ -46,6 +46,7 @@ public class TransitionManager : MonoBehaviour
             {
                 nextEvent = _event;
                 interuptable = is_interuptable;
+                animator.Play("TransitionOut");
             }
             return;
         }
@@ -53,6 +54,13 @@ public class TransitionManager : MonoBehaviour
         interuptable = is_interuptable;
         nextEvent = _event;
         animator.Play("TransitionOut");
+
+        StartCoroutine(PerformLate());
+        IEnumerator PerformLate()
+        {
+            yield return new WaitForSeconds(0.55f);
+            PerformEvent();
+        }
     }
 
     public void PerformEvent()
